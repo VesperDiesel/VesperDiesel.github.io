@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>搭建hexo blog | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="hexo github.io" />
+  
+  
+  
+  
+  <meta name="description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有数百个主题和插件。简单来说就是一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建hexo blog">
+<meta property="og:url" content="http://example.com/2022/11/02/%E6%90%AD%E5%BB%BAhexo-blog/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有数百个主题和插件。简单来说就是一">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/11/02/img/hexoInstall.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/hexoInit.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/github.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/hexoConfig.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/ioOld.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/theme.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/newPageConfig.png">
+<meta property="og:image" content="http://example.com/2022/11/02/img/newPage.png">
+<meta property="article:published_time" content="2022-11-02T03:16:54.000Z">
+<meta property="article:modified_time" content="2022-11-02T07:38:24.411Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="hexo github.io">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/11/02/img/hexoInstall.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-搭建hexo-blog" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      搭建hexo blog
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/02/%E6%90%AD%E5%BB%BAhexo-blog/" class="article-date">
+	  <time datetime="2022-11-02T03:16:54.000Z" itemprop="datePublished">2022-11-02</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有数百个主题和插件。简单来说就是一个不用你写代码，就能搭建一套属于你自己的个人博客网站。另外Hero还提供了大量主题模版供用户下载。</p>
+<h1 id="一、-环境准备"><a href="#一、-环境准备" class="headerlink" title="一、 环境准备"></a>一、 环境准备</h1><p>windows: node, git<br>mac: xcode就可以了</p>
+<h1 id="二、hexo安装"><a href="#二、hexo安装" class="headerlink" title="二、hexo安装"></a>二、hexo安装</h1><h3 id="1、安装hexo"><a href="#1、安装hexo" class="headerlink" title="1、安装hexo"></a>1、安装hexo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">或者</span><br><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>安装完成可输入hexo -v查看版本</p>
+<p><img src="../img/hexoInstall.png" alt="image-20221102113444579"></p>
+<h3 id="2、初始化hexo，新建存储博客的文件夹"><a href="#2、初始化hexo，新建存储博客的文件夹" class="headerlink" title="2、初始化hexo，新建存储博客的文件夹"></a>2、初始化hexo，新建存储博客的文件夹</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init user.github.io</span><br></pre></td></tr></table></figure>
+
+<p><img src="../img/hexoInit.png" alt="image-20211203165005655"></p>
+<h3 id="3、进入文件夹，安装一下npm"><a href="#3、进入文件夹，安装一下npm" class="headerlink" title="3、进入文件夹，安装一下npm"></a>3、进入文件夹，安装一下npm</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd user.github.io</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、启动服务站点"><a href="#4、启动服务站点" class="headerlink" title="4、启动服务站点"></a>4、启动服务站点</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>访问<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 至此hero就搭建好了。可以在本地访问了</p>
+<h1 id="三、-GitHub建站"><a href="#三、-GitHub建站" class="headerlink" title="三、 GitHub建站"></a>三、 GitHub建站</h1><h3 id="1-建立一个仓库"><a href="#1-建立一个仓库" class="headerlink" title="1.建立一个仓库"></a>1.建立一个仓库</h3><p>github上新建一个仓库，命名为user.github.io,  建立完成后，在settings–&gt; Code and automation/Pages 去设置依赖的branch， 也可以根据自己的需要设置自定义域名。</p>
+<p><img src="../img/github.png" alt="image-20211203165005655"></p>
+<h3 id="2、安装hexo上传插件"><a href="#2、安装hexo上传插件" class="headerlink" title="2、安装hexo上传插件"></a>2、安装hexo上传插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、修改hexo配置文件指定仓库路径"><a href="#3、修改hexo配置文件指定仓库路径" class="headerlink" title="3、修改hexo配置文件指定仓库路径"></a>3、修改hexo配置文件指定仓库路径</h3><p>在user.github.io项目中找到_config.yml配置文件， 设置git仓库路径以及分支。</p>
+<p><img src="../img/hexoConfig.png" alt="image-20211203165005655"></p>
+<h3 id="4、推送站点到github"><a href="#4、推送站点到github" class="headerlink" title="4、推送站点到github"></a>4、推送站点到github</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>可以看到main分支已经有最新的代码了， 等待一会，个站的页面就更新了。</p>
+<h3 id="5、访问"><a href="#5、访问" class="headerlink" title="5、访问"></a>5、访问</h3><p><a target="_blank" rel="noopener" href="https://user.github.io/">https://user.github.io/</a></p>
+<p><img src="../img/ioOld.png" alt="image-20211203165005655"></p>
+<h1 id="四、更换主题"><a href="#四、更换主题" class="headerlink" title="四、更换主题"></a>四、更换主题</h1><h3 id="1-找到主题"><a href="#1-找到主题" class="headerlink" title="1.找到主题"></a>1.找到主题</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a> ， 找一个喜欢的主题， </p>
+<h3 id="2-下载主题"><a href="#2-下载主题" class="headerlink" title="2.下载主题"></a>2.下载主题</h3><p>user.github.io项目–&gt; themes文件夹</p>
+<p>cd到 themes， 将主题代码拉下来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iTimeTraveler/hexo-theme-hiker.git themes/hiker</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-更改配置"><a href="#3-更改配置" class="headerlink" title="3.更改配置"></a>3.更改配置</h3><p>在user.github.io项目中找到_config.yml配置文件， 设置主题。</p>
+<p><img src="../img/theme.png" alt="image-20211203165005655"></p>
+<p> 需要更新主题时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd themes/Hiker</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五、-更新仓库"><a href="#五、-更新仓库" class="headerlink" title="五、 更新仓库"></a>五、 更新仓库</h1><h3 id="1-新建文章"><a href="#1-新建文章" class="headerlink" title="1.新建文章"></a>1.新建文章</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;文章标题&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-新建页面"><a href="#2-新建页面" class="headerlink" title="2.新建页面"></a>2.新建页面</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;newPage&quot;</span><br></pre></td></tr></table></figure>
+
+<p>user.github.io项目–&gt; source文件夹–&gt;  新生成的md文件</p>
+<p>在主题配置文件中更新页面配置，将页面路径联接到页面上去</p>
+<p>user.github.io项目 –&gt;  themes文件夹 –&gt; hiker(当前主题) –&gt; _config.yml</p>
+<p><img src="../img/newPageConfig.png" alt="image-20221102150754051"></p>
+<p><img src="../img/newPage.png" alt="image-20221102150754051"></p>
+<h3 id="3-更新仓库"><a href="#3-更新仓库" class="headerlink" title="3.更新仓库"></a>3.更新仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean //清理</span><br><span class="line">hexo g //构建静态文件</span><br><span class="line">hexo d //上传至仓库</span><br></pre></td></tr></table></figure>
+
+<p>更新有一会会的延迟， 过一会查看就有了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>John Doe</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/11/02/搭建hexo-blog/" target="_blank" title="搭建hexo blog">http://example.com/2022/11/02/搭建hexo-blog/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-github-io/" rel="tag">hexo github.io</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.</span> <span class="nav-text">一、 环境准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81hexo%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">二、hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85hexo"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96hexo%EF%BC%8C%E6%96%B0%E5%BB%BA%E5%AD%98%E5%82%A8%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、初始化hexo，新建存储博客的文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E8%BF%9B%E5%85%A5%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%AE%89%E8%A3%85%E4%B8%80%E4%B8%8Bnpm"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、进入文件夹，安装一下npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%99%E7%82%B9"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、启动服务站点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81-GitHub%E5%BB%BA%E7%AB%99"><span class="nav-number">3.</span> <span class="nav-text">三、 GitHub建站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BB%BA%E7%AB%8B%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.建立一个仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85hexo%E4%B8%8A%E4%BC%A0%E6%8F%92%E4%BB%B6"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、安装hexo上传插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E4%BF%AE%E6%94%B9hexo%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%8C%87%E5%AE%9A%E4%BB%93%E5%BA%93%E8%B7%AF%E5%BE%84"><span class="nav-number">3.0.3.</span> <span class="nav-text">3、修改hexo配置文件指定仓库路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%8E%A8%E9%80%81%E7%AB%99%E7%82%B9%E5%88%B0github"><span class="nav-number">3.0.4.</span> <span class="nav-text">4、推送站点到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E8%AE%BF%E9%97%AE"><span class="nav-number">3.0.5.</span> <span class="nav-text">5、访问</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">四、更换主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%89%BE%E5%88%B0%E4%B8%BB%E9%A2%98"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.找到主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BD%E4%B8%BB%E9%A2%98"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.下载主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9B%B4%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.更改配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E6%9B%B4%E6%96%B0%E4%BB%93%E5%BA%93"><span class="nav-number">5.</span> <span class="nav-text">五、 更新仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.新建文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%96%B0%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.新建页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9B%B4%E6%96%B0%E4%BB%93%E5%BA%93"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.更新仓库</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 Hexo All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
