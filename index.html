@@ -347,7 +347,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-git"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-sitemap"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -355,7 +355,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/11/03/git/">git 常用命令</a>
+      <a class="article-title" href="/2022/11/17/sitemap/">sitemap格式</a>
     </h1>
   
 
@@ -363,8 +363,63 @@
     
     <div class="article-meta">
       
-	<a href="/2022/11/03/git/" class="article-date">
-	  <time datetime="2022-11-03T09:49:54.000Z" itemprop="datePublished">2022-11-03</time>
+	<a href="/2022/11/17/sitemap/" class="article-date">
+	  <time datetime="2022-11-17T02:10:28.000Z" itemprop="datePublished">2022-11-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/sitemap/">sitemap</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+Sitemaps协议使网站能够告知搜索引擎网站中可供抓取的网址，以便于搜索引擎google等更方便地抓取网站。而sitemap.xml是遵守该协议的包含了一个网站所有链接的xml格式文件。sitemap.xml文件可以手工编写，也可以通过软件自动生成，比如通过小爬虫在线生成工具。sitemap.xml文件创建好了之后可以提交给各个搜索引擎。
+
+sitemap格式1234567891011121314151617181920212223&lt;?xml version=&quot;1.0&...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/17/sitemap/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-gitignore"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/17/gitignore/">gitignore详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/17/gitignore/" class="article-date">
+	  <time datetime="2022-11-17T01:53:28.000Z" itemprop="datePublished">2022-11-17</time>
 	</a>
 
       
@@ -377,10 +432,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          一、git常用命令1.基本命令123456789git init // 初始化 在工作路径上创建主分支git clone 地址 // 克隆远程仓库git clone -b &lt;分支名&gt; 地址 // 克隆分支的代码到本地git status // 查看状态git add 文件名 // 将某个文件存入暂存区git checkout -- file // 撤销工作区的修改 例如git checkout -- readMe.txt 将本次readMe.txt在工作区的修改撤销掉git a...
+          
+在一些项目中，我们不想让本地仓库的所有文件都上传到远程仓库中，而是有选择的上传，比如：一些依赖文件（node_modules下的依赖）、bin 目录下的文件、测试文件等。一方面将一些依赖、测试文件都上传到远程传输量很大，另一方面，一些文件对于你这边是可用的，在另一个人那可能就不可用了，比如：本地配置文件。为了解决上述问题，git 引入了 .gitignore 文件，使用该文件来选择性的上传文件。
+
+使用规则注释注释使用 # 开头，后面跟注释内容。如下所示：
+1234567linuxy@l...
         </p>
         <p class="article-more-link">
-          <a href="/2022/11/03/git/#more">Read More</a>
+          <a href="/2022/11/17/gitignore/#more">Read More</a>
         </p>
       
     </div>
@@ -399,7 +458,7 @@
 
 
   
-    <article id="post-搭建hexo-blog"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-手写promise"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -407,7 +466,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/11/02/%E6%90%AD%E5%BB%BAhexo-blog/">搭建hexo blog</a>
+      <a class="article-title" href="/2022/11/08/%E6%89%8B%E5%86%99promise/">手写promise</a>
     </h1>
   
 
@@ -415,12 +474,12 @@
     
     <div class="article-meta">
       
-	<a href="/2022/11/02/%E6%90%AD%E5%BB%BAhexo-blog/" class="article-date">
-	  <time datetime="2022-11-02T03:16:54.000Z" itemprop="datePublished">2022-11-02</time>
+	<a href="/2022/11/08/%E6%89%8B%E5%86%99promise/" class="article-date">
+	  <time datetime="2022-11-08T09:49:54.000Z" itemprop="datePublished">2022-11-08</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
+    <a class="article-category-link" href="/categories/js/">js</a>
 
       
       
@@ -429,10 +488,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。Hexo是一个基于 node.js的快速生成静态博客的开源框架,支持 Markdown和大多数 Octopress插件,一个命令即可部署到 Github页面、 Giteee、 Heroku等,强大的APl,可无限扩展,拥有数百个主题和插件。简单来说就是一个不用你写代码，就能搭建一套属于你自己的个人博客网站。另外Hero还提供了大量主题模版供用户下...
+          
         </p>
         <p class="article-more-link">
-          <a href="/2022/11/02/%E6%90%AD%E5%BB%BAhexo-blog/#more">Read More</a>
+          <a href="/2022/11/08/%E6%89%8B%E5%86%99promise/#more">Read More</a>
         </p>
       
     </div>
@@ -451,7 +510,7 @@
 
 
   
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-css"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -459,7 +518,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/11/02/hello-world/">Hello World</a>
+      <a class="article-title" href="/2022/11/08/css/">CSS Tips</a>
     </h1>
   
 
@@ -467,11 +526,13 @@
     
     <div class="article-meta">
       
-	<a href="/2022/11/02/hello-world/" class="article-date">
-	  <time datetime="2022-11-02T01:37:18.149Z" itemprop="datePublished">2022-11-02</time>
+	<a href="/2022/11/08/css/" class="article-date">
+	  <time datetime="2022-11-08T01:39:54.000Z" itemprop="datePublished">2022-11-08</time>
 	</a>
 
       
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+
       
       
 
@@ -479,11 +540,375 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New...
+          
         </p>
         <p class="article-more-link">
-          <a href="/2022/11/02/hello-world/#more">Read More</a>
+          <a href="/2022/11/08/css/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-bom"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/07/bom/">BOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/bom/" class="article-date">
+	  <time datetime="2022-11-07T11:49:54.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          BOM，Browser Object Model，即浏览器对象模型。浏览器页面初始化时，会在内存创建一个全局对象，用来描述当前窗口的属性和状态，这个全局对象被称为浏览器对象模型。
+window对象window对象也是BOM的顶级对象，所有浏览器都支持window对象，它代表的是浏览器的窗口。
+1. window的sizewindow对象有两个用来定义浏览器窗口大小的属性（两个属性均返回以px像素为单位的数值）：  
+
+window.innerHeight 它返回浏览器窗口的高度  
+win...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/07/bom/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-dom"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/07/dom/">DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/dom/" class="article-date">
+	  <time datetime="2022-11-07T10:49:54.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          一、节点节点关系属性
+
+
+
+属性
+属性
+说明
+
+
+
+父级属性
+parentNode
+每个节点都有一个parentNode属性，该属性指向文档树中的父节点。对于一个节点来说，它的父节点只可能是三种类型：element节点、document节点和documentfragment节点。如果不存在，则返回null
+
+
+
+parentElement
+与parentNode属性不同的是，parentElement返回的是父元素节点
+
+
+子级属性
+childNodes
+childNodes是一个只读的类...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/07/dom/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Oauth"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/07/Oauth/">Oauth</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/Oauth/" class="article-date">
+	  <time datetime="2022-11-07T10:16:54.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+在开发过程中可能会遇到需要第三方授权的情况,这时就需要用到OAuth,OAuth（开放授权）是一个开放标准，允许用户授权第三方移动应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他们数据的所有内容
+
+什么是OAuthOAuth 就是一种授权机制。数据的所有者告诉系统，同意授权第三方应用进入系统，获取这些数据。系统从而产生一个短期的进入令牌（token），用来代替密码，供第三方应用使用。
+具体到实际应用就是,比如我要登录微博,除了用微博账号,微博...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/07/Oauth/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-miniprogram"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/07/miniprogram/">小程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/miniprogram/" class="article-date">
+	  <time datetime="2022-11-07T09:55:13.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          小程序组件
+小程序组件小程序的组件对一些常用功能有了较好的支持, 比如swiper, movable-view等, 可以用较少的代码量, 只配置一些属性就实现原生js较复杂的功能.
+
+cover-view可以覆盖在原生组件之上, 只支持嵌套 cover-view、cover-image，可在 cover-view 中使用 button。但是在uniapp中样式不生效, 暂时原因不明, 可能是编译问题.
+movable-view可移动的视图容器，在页面中可以拖拽滑动。movable-view...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/07/miniprogram/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-typeScript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/07/typeScript/">TypeScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/typeScript/" class="article-date">
+	  <time datetime="2022-11-07T07:55:54.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          运行环境的搭建学习ts，因为并不可以直接在浏览器看到效果，而且使用tsc编译成js，或者使用tsc –watch等方法都不算方便，考虑到平时使用ts，基本都是在构建工具中，所以首先第一步我们需要创建一个rollup的构建环境来学习ts
+
+为什么选择rollup而不是webpack？
+
+
+因为rollup打包出来的js代码相对更干净纯粹，适合来打包纯js代码
+
+
+需要配置哪些？
+
+12345678// 首先需要npm init -y// 然后下载rollup typescript等npm i...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/07/typeScript/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-http"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/07/http/">http</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/http/" class="article-date">
+	  <time datetime="2022-11-07T07:33:28.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/http/">http</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          HTTP协议（HyperText Transfer Protocol，超文本传输协议）是因特网上应用最为广泛的一种网络传输协议，所有的WWW文件都必须遵守这个标准。
+HTTP是一个基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。
+http消息结构客户端请求消息客户端发送一个HTTP请求到服务器的请求消息包括以下四个部分：  
+
+请求行（request line）
+请求头部（header）
+空行
+请求数据服务器响应消息HTTP响应也由四个部分组成，分别是：
+状...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/07/http/#more">Read More</a>
         </p>
       
     </div>
@@ -503,6 +928,11 @@ Quick StartCreate a new post1$ hexo new &quot;My New...
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+  </nav>
 
 </section>
         

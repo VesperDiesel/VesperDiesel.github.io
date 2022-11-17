@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>devtools浏览器控制台 | Vesper Diesel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Chrome" />
+  
+  
+  
+  
+  <meta name="description" content="在Chrome菜单中选择 更多工具 &gt; 开发者工具 在页面元素上右键点击，选择 “检查” 使用 快捷键 Ctrl+Shift+I (Windows) 或 Cmd+Opt+I (Mac)  元素面板Elements 能在元素面板查看&#x2F;选择当前页的DOM树，也可以在页面上点选；    选中节点后会在元素面板左边显示元素源代码所在位置，右边会显示节点的各级样式，盒模型（Computed），事件，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="devTools浏览器控制台">
+<meta property="og:url" content="http://example.com/2022/11/07/devTools/index.html">
+<meta property="og:site_name" content="Vesper Diesel">
+<meta property="og:description" content="在Chrome菜单中选择 更多工具 &gt; 开发者工具 在页面元素上右键点击，选择 “检查” 使用 快捷键 Ctrl+Shift+I (Windows) 或 Cmd+Opt+I (Mac)  元素面板Elements 能在元素面板查看&#x2F;选择当前页的DOM树，也可以在页面上点选；    选中节点后会在元素面板左边显示元素源代码所在位置，右边会显示节点的各级样式，盒模型（Computed），事件，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-07T06:23:54.000Z">
+<meta property="article:modified_time" content="2022-11-07T06:31:33.699Z">
+<meta property="article:author" content="Vesper">
+<meta property="article:tag" content="Chrome">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Vesper Diesel" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-devTools" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      devTools浏览器控制台
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/devTools/" class="article-date">
+	  <time datetime="2022-11-07T06:23:54.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Chrome/">Chrome</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>在Chrome菜单中选择 更多工具 &gt; 开发者工具</li>
+<li>在页面元素上右键点击，选择 “检查”</li>
+<li>使用 快捷键 Ctrl+Shift+I (Windows) 或 Cmd+Opt+I (Mac)</li>
+</ul>
+<h2 id="元素面板Elements"><a href="#元素面板Elements" class="headerlink" title="元素面板Elements"></a>元素面板Elements</h2><ul>
+<li><p>能在元素面板查看/选择当前页的DOM树，也可以在页面上点选；  </p>
+</li>
+<li><p>选中节点后会在元素面板左边显示元素源代码所在位置，右边会显示节点的各级样式，盒模型（Computed），事件，断点，属性；  </p>
+</li>
+<li><p>DOM代码和样式可以实时修改调试（修改后再刷新页面，修改就失效了，可以选择保存修改，下面sources面板会提到）；  </p>
+</li>
+<li><p>可以在每行代码前面右键添加断点，这点很实用。断点有三种类型：属性改变，子节点改变，节点删除；  </p>
+</li>
+<li><p>可以右键force state节点选择节点的状态:active :hover :visited :focus，当你无法模拟这些状态时，这个功能就很实用；  </p>
+</li>
+</ul>
+<h2 id="控制台面板Console"><a href="#控制台面板Console" class="headerlink" title="控制台面板Console"></a>控制台面板Console</h2><ul>
+<li><p>在控制台能显示浏览器的消息，其中消息分为info，verbose（长消息），error，warning四个等级；</p>
+</li>
+<li><p>相同的消息是默认堆叠的，可以设置成按时间戳（timestamps）显示；</p>
+</li>
+<li><p>可以选择是否保留历史记录Preverse Log，是否显示网络消息和XHR请求；</p>
+</li>
+<li><p>可以用filter过滤器筛选信息；</p>
+</li>
+<li><p>可以选择执行环境：top（默认）、 iframe等；</p>
+</li>
+<li><p>可以在控制台执行代码段，chrome浏览器内置了一些函数可以使用，可以直接在控制台里定义修改它的函数再使用；</p>
+</li>
+</ul>
+<h2 id="源代码面板Sources"><a href="#源代码面板Sources" class="headerlink" title="源代码面板Sources"></a>源代码面板Sources</h2><ul>
+<li><p>在这里可以看到一些源文件；</p>
+</li>
+<li><p>类似元素面板中设置断点，这里也可以在每一行代码前设置断点，利用这些断点使代码运行到适当的时候或位置停下来，以便查看特定时刻的变量值、调用堆栈、样式等；可以自定义断点条件，运行到这行代码表达式为true就会停下来；</p>
+</li>
+<li><p>中间部分左下角有一个{}大括号图标，可以将压缩的代码格式化；</p>
+</li>
+<li><p>右边部分也是关于断点的，可以在这里查看所有的断点，选择一系列事件断点，比如动画，键盘，Load事件，XHR事件等等；</p>
+</li>
+</ul>
+<h2 id="网络面板Network"><a href="#网络面板Network" class="headerlink" title="网络面板Network"></a>网络面板Network</h2><p>网络面板分为上下五个窗格。  </p>
+<ul>
+<li><p>第一行是control窗格，窗格中的选项用于控制network面板的外观和具体功能；<br>功能包括录制屏幕，录制后将会以类似“ppt”的形式将录制的每一帧显示出来（可以用来调试动画），可以拉动时间轴；<br>可以选择打开filter过滤器，控制在Request Table窗格（第四个） 中显示哪些下载资源，支持正则表达式过滤，支持选择不同类型资源；<br>Disable cache”这个选项，用于控制是否支持缓存（当你在服务器多次更改css，js文件然后需要在浏览器查看更改效果的时候，你可以打开这个选项，以防浏览器使用的旧的缓存的文件，那样就看不到更改效果了）；<br>online类似设备模式中的throttling，这里也可以模拟网络环境；  </p>
+</li>
+<li><p>第三行“Overview”窗格，这里面的图标显示了资源检索时间的时间线（资源多的话像瀑布一样），你可以点选时间线的一段时间查看；</p>
+</li>
+<li><p>第四行“Request Table”窗格就列出了检索的每一个资源，以及他们的加载时间，资源类型，服务器返回状态码（比如200），大小，鼠标移到右边的彩色条上就能看的详细的瀑布图，更厉害的是右键资源，有很多操作，比如复制资源请求/响应的报头、报文以及URL（报头报文不知道的了解一下计算机网络里面的http协议）；</p>
+</li>
+</ul>
+<h2 id="性能面板Performance"><a href="#性能面板Performance" class="headerlink" title="性能面板Performance"></a>性能面板Performance</h2><p>在这个面板你可以录制一段操作，然后查看录制期间的一些页面性能信息，录制前有几个选项可选，包括网络环境模拟，CPU速度模拟，是否开启录制期间截屏；<br>性能面板包含四个窗格：  </p>
+<ul>
+<li><p>制窗格，包含一些录制选项：CPU速度模拟，网络环境模拟，录制期间是否截图，是否开启js记录等等，录制要注意几点：尽可能保持记录简短。简短的记录通常会让分析更容易。避免不必要的操作。避免与您想要记录和分析的活动无关联的操作（鼠标点击、网络加载，等等）。例如，如果您想要记录点击 Login 按钮后发生的事件，请不要滚动页面、加载图像，等等。 停用浏览器缓存。记录网络操作时，最好从 DevTools 的 Settings 面板或 Network conditions 抽屉式导航栏停用浏览器的缓存。停用扩展程序。Chrome 扩展程序会给应用的 Timeline 记录增加不相关的噪声。 以隐身模式打开 Chrome 窗口或者创建新的 Chrome 用户个人资料，确保您的环境中没有扩展程序。</p>
+</li>
+<li><p>第二窗格是Overview，是录制页面性能的汇总，包含以下三个图表<br>FPS。每秒帧数。绿色竖线越高，FPS 越高。 FPS 图表上的红色块表示长时间帧，很可能会出现卡顿。如果录制开启了截屏，当鼠标悬停overview窗格上时，会显示出每一帧的图片。<br>CPU。 CPU 资源。此面积图指示消耗 CPU 资源的事件类型。<br>NET。每条彩色横杠表示一种资源。横杠越长，检索资源所需的时间越长。 每个横杠的浅色部分表示等待时间（从请求资源到第一个字节下载完成的时间）。深色部分表示传输时间（下载第一个和最后一个字节之间的时间）。横杠按照以下方式进行彩色编码：HTML 文件为蓝色。脚本为黄色。样式表为紫色。媒体文件为绿色。其他资源为灰色。另外，按 Cmd+F (Mac) 或 Ctrl+F (Windows / Linux) 可以打开一个查找工具栏。键入想要检查的事件类型的名称，如 Event。<br>搜索工具栏仅适用于当前选定的时间范围。选定时间范围以外的任何事件都不会包含在结果中。利用上下箭头，可以按照时间顺序在结果中移动，第一个结果表示选定时间范围内最早的事件，最后一个结果表示最后的事件。每次按向上或向下箭头会选择一个新事件，可以在 Details 窗格中查看其详细信息。按向上和向下箭头等同于在火焰图中点击事件。</p>
+</li>
+<li><p>第三个窗格是火焰图。 CPU 堆叠追踪的可视化。可以在火焰图上看到一到三条垂直的虚线。蓝线代表 DOMContentLoaded事件。 绿线代表首次绘制的时间。 红线代表 load 事件。 开始记录前，不要开启Disable JS samples复选框，以便在时间线记录中捕捉 JavaScript 堆栈。 启用 JS 分析器后，火焰图会显示调用的每个JavaScript 函数。 火焰图可以用鼠标滚轮调整大小；</p>
+</li>
+<li><p>第四个是Details窗格。选择事件后，此窗格会显示与该事件有关的更多信息。 未选择事件时，此窗格会显示选定时间范围的相关信息。</p>
+</li>
+</ul>
+<h2 id="内存面板Memory"><a href="#内存面板Memory" class="headerlink" title="内存面板Memory"></a>内存面板Memory</h2><p>在此面板录制，可以使用CPU 分析器识别开销大的js函数。分析器准确地记录调用了哪些函数和每个函数花费的时间。也可以将配置文件可视化为火焰图。（执行js比较卡的时候可以用这个工具来查找原因）；  </p>
+<p>火焰图分为以下两部分：  </p>
+<ul>
+<li>概览：整个记录的鸟瞰图。 条的高度与调用堆栈的深度相对应。 所以，栏越高，调用堆栈越深。</li>
+<li>调用堆栈：这里可以详细深入地查看记录过程中调用的函数。 横轴是时间，纵轴是调用堆栈。 堆栈由上而下组织。所以，上面的函数调用它下面的函数，以此类推。高调用堆栈不一定很重要，只是表示调用了大量的函数。但宽条表示调用需要很长时间完成。 这些需要优化。鼠标悬停在上面可以看到函数详情。</li>
+</ul>
+<p>此外，除了用内存面板查看函数的内存堆栈情况外，还可以使用 Chrome 任务管理器作为内存问题调查的起点。<br>任务管理器是一个实时监视器，可以告诉您页面当前正在使用的内存量。<br>按 Shift+Esc 或者转到 Chrome 主菜单并选择 More tools &gt; Task manager，打开任务管理器。右键点击任务管理器的表格标题并启用 JavaScript memory。下面两列是与页面的内存使用有关的不同信息：<br>Memory 列表示原生内存。DOM 节点存储在原生内存中。 如果此值正在增大，则说明正在创建 DOM 节点。JavaScript Memory 列表示 JS 堆。此列包含两个值。 您感兴趣的值是实时数字（括号中的数字）。 实时数字表示您的页面上的可到达对象正在使用的内存量。 如果此数字在增大，要么是正在创建新对象，要么是现有对象正在增长。</p>
+<h2 id="应用面板Application"><a href="#应用面板Application" class="headerlink" title="应用面板Application"></a>应用面板Application</h2><ul>
+<li><p>查看和修改Local Storage与Session Storage：</p>
+</li>
+<li><p>可以从 Local Storage 窗格和Session Storage窗格中检查、修改和删除键值对（KVP）；使用 IndexedDB 窗格可以检查、修改和删除 IndexedDB 数据。展开 IndexedDB 窗格时，IndexedDB 下的第一个级别是数据库。 如果存在多个活动的数据库，会看到多个条目。 在下面的屏幕截图中，页面只有一个活动的数据库。点击数据库的名称可以查看该数据库的安全源、名称和版本。展开数据库可以查看其键值对 (KVP)。</p>
+</li>
+<li><p>使用 Start from key 文本字段旁的箭头按钮可以在 KVP 的页面之间移动。展开值并双击可以编辑该值。在您添加、修改或删除值时，这些更改不会实时更新。在 Start from key 文本字段中输入键可以过滤出值小于该值的所有键。</p>
+</li>
+<li><p>在添加、修改或删除值时，这些更改不会实时更新。 点击 refresh 按钮 () 可以更新数据库。</p>
+</li>
+<li><p>点击 Clear Object Store 按钮 () 可以删除数据库中的所有数据。 从 Clear storage 窗格中，点击一次按钮注销服务工作线程并移除其他存储与缓存也可以实现此目标。</p>
+</li>
+<li><p>使用 Web SQL 窗格可以查询和修改 Web SQL 数据库,点击数据库名称可以打开该数据库的控制台。从这里，可以对数据库执行语句。点击数据库表可以查看该表的数据。无法从这里更新值，但是可以通过数据库控制台,点击列标题可以按该列排序表格。</p>
+</li>
+<li><p>在 Visibile columns 文本字段中输入一个由空格分隔或逗号分隔的列名称列表可以仅显示列表中包含的列。</p>
+</li>
+<li><p>使用 Application Cache 窗格可以检查通过 Application Cache API （HTML5中新加的API）创建的资源和规则：  </p>
+</li>
+</ul>
+<p>清除服务工作线程、存储、数据库和缓存,有时，只需要擦除给定源的所有数据。利用 Application 面板上的 Clear Storage 窗格，可以选择性地注销服务工作线程、存储和缓存。要清除数据，只需启用想要擦除的组件旁的复选框，然后点击 Clear site data。操作将擦除 Clear storage 标签下所列源的所有数据。</p>
+<h2 id="安全面板Security"><a href="#安全面板Security" class="headerlink" title="安全面板Security"></a>安全面板Security</h2><p>使用 Security Overview 可以一目了然的查看当前页面是否安全。</p>
+<ul>
+<li><p>点击 View certificate 检查各个源以查看连接和证书详情（安全源）或找出具体哪些请求未受保护（非安全源）。</p>
+</li>
+<li><p>点击 View certificate 检查各个源以查看连接和证书详情（安全源）或找出具体哪些请求未受保护（非安全源）。</p>
+</li>
+</ul>
+<p>Security 面板可以区分两种非安全页面。</p>
+<ul>
+<li>如果请求的页面通过 HTTP 提供，则主源会被标记为不安全。</li>
+<li>如果请求的页面通过 HTTPS 检索，但页面会继续使用 HTTP 检索其他源的内容，然后页面仍然会被标记为不安全。这称为混合内容页面。 混合内容页面仅受部分保护，因为 HTTP 内容可以被嗅探器获取到且易受到中间人攻击。</li>
+</ul>
+<p>使用左侧面板可以检查各个安全或非安全源。点击安全源查看该源的连接和证书详情。</p>
+<h2 id="微信开发者工具"><a href="#微信开发者工具" class="headerlink" title="微信开发者工具"></a>微信开发者工具</h2><p> <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html">微信开发者工具文档</a></p>
+<h2 id="vue-devtools"><a href="#vue-devtools" class="headerlink" title="vue devtools"></a>vue devtools</h2><p>  <a target="_blank" rel="noopener" href="https://huajiakeji.com/utilities/2018-12/1653.html">vue-devtools下载及使用</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chrome/" rel="tag">Chrome</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/07/html/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          html
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/03/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git 常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E9%9D%A2%E6%9D%BFElements"><span class="nav-number">1.</span> <span class="nav-text">元素面板Elements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E9%9D%A2%E6%9D%BFConsole"><span class="nav-number">2.</span> <span class="nav-text">控制台面板Console</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%E9%9D%A2%E6%9D%BFSources"><span class="nav-number">3.</span> <span class="nav-text">源代码面板Sources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%9D%A2%E6%9D%BFNetwork"><span class="nav-number">4.</span> <span class="nav-text">网络面板Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E9%9D%A2%E6%9D%BFPerformance"><span class="nav-number">5.</span> <span class="nav-text">性能面板Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E9%9D%A2%E6%9D%BFMemory"><span class="nav-number">6.</span> <span class="nav-text">内存面板Memory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E9%9D%A2%E6%9D%BFApplication"><span class="nav-number">7.</span> <span class="nav-text">应用面板Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E9%9D%A2%E6%9D%BFSecurity"><span class="nav-number">8.</span> <span class="nav-text">安全面板Security</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7"><span class="nav-number">9.</span> <span class="nav-text">微信开发者工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-devtools"><span class="nav-number">10.</span> <span class="nav-text">vue devtools</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 Vesper Diesel All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Vesper Diesel
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 Vesper All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

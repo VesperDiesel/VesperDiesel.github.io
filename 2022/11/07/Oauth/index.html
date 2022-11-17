@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>oauth | Vesper Diesel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Oauth" />
+  
+  
+  
+  
+  <meta name="description" content="在开发过程中可能会遇到需要第三方授权的情况,这时就需要用到OAuth,OAuth（开放授权）是一个开放标准，允许用户授权第三方移动应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他们数据的所有内容  什么是OAuthOAuth 就是一种授权机制。数据的所有者告诉系统，同意授权第三方应用进入系统，获取这些数据。系统从而产生一个短期的进入令牌（token）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oauth">
+<meta property="og:url" content="http://example.com/2022/11/07/Oauth/index.html">
+<meta property="og:site_name" content="Vesper Diesel">
+<meta property="og:description" content="在开发过程中可能会遇到需要第三方授权的情况,这时就需要用到OAuth,OAuth（开放授权）是一个开放标准，允许用户授权第三方移动应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他们数据的所有内容  什么是OAuthOAuth 就是一种授权机制。数据的所有者告诉系统，同意授权第三方应用进入系统，获取这些数据。系统从而产生一个短期的进入令牌（token）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-07T10:16:54.000Z">
+<meta property="article:modified_time" content="2022-11-07T09:54:46.425Z">
+<meta property="article:author" content="Vesper">
+<meta property="article:tag" content="Oauth">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Vesper Diesel" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Oauth" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Oauth
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/07/Oauth/" class="article-date">
+	  <time datetime="2022-11-07T10:16:54.000Z" itemprop="datePublished">2022-11-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在开发过程中可能会遇到需要第三方授权的情况,这时就需要用到OAuth,OAuth（开放授权）是一个开放标准，允许用户授权第三方移动应用访问他们存储在另外的服务提供者上的信息，而不需要将用户名和密码提供给第三方移动应用或分享他们数据的所有内容</p>
+</blockquote>
+<h2 id="什么是OAuth"><a href="#什么是OAuth" class="headerlink" title="什么是OAuth"></a>什么是OAuth</h2><p>OAuth 就是一种授权机制。数据的所有者告诉系统，同意授权第三方应用进入系统，获取这些数据。系统从而产生一个短期的进入令牌（token），用来代替密码，供第三方应用使用。</p>
+<p>具体到实际应用就是,比如我要登录微博,除了用微博账号,微博还提供了qq登录,当用户点击使用qq直接登录时,会跳到一个qq授权的页面,它的地址是这样的:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://graph.qq.com/oauth2.0/show?which=Login&amp;display=pc&amp;client_id=101019034&amp;response_type=code&amp;scope=get_info%2Cget_user_info&amp;redirect_uri=https%3A%2F%2Fpassport.weibo.com%2Fothersitebind%2Fbind%3Fsite%3Dqq%26state%3DCODE-tc-1JJzc2-1U4EFC-ozg6NJuIJVGNJ0F225190%26bentry%3Dminiblog%26wl%3D&amp;display=`</span></span><br></pre></td></tr></table></figure>
+<p>在这个页面,qq会告知用户,微博将获得以下权限：获得您的昵称、头像、性别,授权后表明你已同意QQ登录服务协议, 在这个页面登录后,微博就可以拿到授权,用qq的头像去登录了,当然微博后续要求账号绑定或者新注册,这个就根据具体场景可能会进行拦截,但是此时qq的授权微博是拿到了的.</p>
+<h2 id="Oauth的授权方式及流程"><a href="#Oauth的授权方式及流程" class="headerlink" title="Oauth的授权方式及流程"></a>Oauth的授权方式及流程</h2><p>OAuth 引入了一个授权层，用来分离两种不同的角色：客户端和资源所有者。资源所有者同意以后，资源服务器可以向客户端颁发令牌。客户端通过令牌，去请求数据。也就是说,OAuth 的核心就是向第三方应用颁发令牌。OAuth 2.0 规定了四种获得令牌的流程。你可以选择最适合自己的那一种，向第三方应用颁发令牌</p>
+<ul>
+<li>授权码（authorization-code）</li>
+<li>隐藏式（implicit）</li>
+<li>密码式（password）：</li>
+<li>客户端凭证（client credentials）</li>
+</ul>
+<p>不管哪一种授权方式，第三方应用申请令牌之前，都必须先到系统备案，说明自己的身份，然后会拿到两个身份识别码：客户端 ID（client ID）和客户端密钥（client secret）。这是为了防止令牌被滥用，没有备案过的第三方应用，是不会拿到令牌的。</p>
+<h3 id="授权码（authorization-code）"><a href="#授权码（authorization-code）" class="headerlink" title="授权码（authorization code）"></a>授权码（authorization code）</h3><p>授权码（authorization code）方式，指的是第三方应用先申请一个授权码，然后再用该码获取令牌。这种方式是最常用的流程，安全性也最高，它适用于那些有后端的 Web 应用。授权码通过前端传送，令牌则是储存在后端，而且所有与资源服务器的通信都在后端完成。这样的前后端分离，可以避免令牌泄漏。</p>
+<ul>
+<li><p>第一步 A 网站提供一个链接，用户点击后就会跳转到 B 网站，授权用户数据给 A 网站使用<br>还拿上面那个url举例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://graph.qq.com/oauth2.0/show?</span></span><br><span class="line"><span class="string">which=Login&amp;</span></span><br><span class="line"><span class="string">display=pc&amp;</span></span><br><span class="line"><span class="string">client_id=101019034&amp;</span></span><br><span class="line"><span class="string">response_type=code</span></span><br><span class="line"><span class="string">&amp;scope=get_info%2Cget_user_info&amp;</span></span><br><span class="line"><span class="string">redirect_uri=https%3A%2F%2Fpassport.weibo.com%2Fothersitebind%2Fbind%3Fsite%3Dqq%26state%3DCODE-tc-1JJzc2-1U4EFC-ozg6NJuIJVGNJ0F225190%26bentry%3Dminiblog%26wl%3D&amp;</span></span><br><span class="line"><span class="string">//https://passport.weibo.com/othersitebind/bind?site=qq&amp;state=CODE-tc-1JJzc2-1U4EFC-ozg6NJuIJVGNJ0F225190&amp;bentry=miniblog&amp;wl=&amp;</span></span><br><span class="line"><span class="string">display=`</span></span><br></pre></td></tr></table></figure>
+<p>将url分为几个部分,里面有几个重要的参数<br>response_type参数表示要求返回授权码（code）<br>client_id参数让 B 知道是谁在请求<br>redirect_uri参数是 B 接受或拒绝请求后的跳转网址<br>scope参数表示要求的授权范围（get_info/get_user_info） </p>
+</li>
+<li><p>第二步，用户跳转后，B 网站会要求用户登录，然后询问是否同意给予 A 网站授权。用户表示同意，这时 B 网站就会跳回redirect_uri参数指定的网址。跳转时，会传回一个授权码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://a.com/callback?code=AUTHORIZATION_CODE`</span></span><br></pre></td></tr></table></figure>
+<p>这个时候链接中会有一个授权码,这个code就是授权码</p>
+</li>
+<li><p>第三步，A 网站拿到授权码以后，就可以在后端，向 B 网站请求令牌</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://b.com/oauth/token?</span></span><br><span class="line"><span class="string">client_id=CLIENT_ID&amp;</span></span><br><span class="line"><span class="string">client_secret=CLIENT_SECRET&amp;</span></span><br><span class="line"><span class="string">grant_type=authorization_code&amp;</span></span><br><span class="line"><span class="string">code=AUTHORIZATION_CODE&amp;</span></span><br><span class="line"><span class="string">redirect_uri=CALLBACK_URL`</span></span><br></pre></td></tr></table></figure>
+<p>client_id参数和client_secret参数用来让 B 确认 A 的身份（client_secret参数是保密的，因此只能在后端发请求）<br>grant_type参数的值是AUTHORIZATION_CODE，表示采用的授权方式是授权码<br>code参数是上一步拿到的授权码<br>redirect_uri参数是令牌颁发后的回调网址。  </p>
+</li>
+<li><p>第四步，B 网站收到请求以后，就会颁发令牌。具体做法是向redirect_uri指定的网址，发送一段 JSON 数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`&#123;</span></span><br><span class="line"><span class="string">&quot;access_token&quot;:&quot;ACCESS_TOKEN&quot;,</span></span><br><span class="line"><span class="string">&quot;token_type&quot;:&quot;bearer&quot;,</span></span><br><span class="line"><span class="string">&quot;expires_in&quot;:2592000,</span></span><br><span class="line"><span class="string">&quot;refresh_token&quot;:&quot;REFRESH_TOKEN&quot;,</span></span><br><span class="line"><span class="string">&quot;scope&quot;:&quot;read&quot;,</span></span><br><span class="line"><span class="string">&quot;uid&quot;:100101,</span></span><br><span class="line"><span class="string">&quot;info&quot;:&#123;...&#125;&#125;`</span></span><br></pre></td></tr></table></figure>
+<p>上面 JSON 数据中，access_token字段就是令牌，A 网站在后端拿到了。</p>
+</li>
+</ul>
+<p>大概流程就是,A网站向B网站请求授权码,B给A返回授权码,A拿着授权码向B请求令牌,B返回给A令牌,这样A就拿到了B的授权</p>
+<h3 id="隐藏式（implicit）"><a href="#隐藏式（implicit）" class="headerlink" title="隐藏式（implicit）"></a>隐藏式（implicit）</h3><p>有些 Web 应用是纯前端应用，没有后端。这时就不能用授权码方式了，必须将令牌储存在前端,直接向前端颁发令牌。这种方式没有授权码这个中间步骤，所以称为（授权码）”隐藏式”（implicit）。</p>
+<ul>
+<li><p>第一步，A 网站提供一个链接，要求用户跳转到 B 网站，授权用户数据给 A 网站使用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://b.com/oauth/authorize?</span></span><br><span class="line"><span class="string">response_type=token&amp;</span></span><br><span class="line"><span class="string">client_id=CLIENT_ID&amp;</span></span><br><span class="line"><span class="string">redirect_uri=CALLBACK_URL&amp;</span></span><br><span class="line"><span class="string">scope=read`</span></span><br></pre></td></tr></table></figure>
+<p>上面 URL 中，response_type参数为token，表示要求直接返回令牌。</p>
+</li>
+<li><p>第二步，用户跳转到 B 网站，登录后同意给予 A 网站授权。这时，B 网站就会跳回redirect_uri参数指定的跳转网址，并且把令牌作为 URL 参数，传给 A 网站。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://a.com/callback#token=ACCESS_TOKEN`</span></span><br></pre></td></tr></table></figure>
+<p>上面 URL 中，token参数就是令牌，A 网站因此直接在前端拿到令牌。 </p>
+</li>
+</ul>
+<p>注意，令牌的位置是 URL 锚点（fragment），而不是查询字符串（querystring），这是因为 OAuth 2.0 允许跳转网址是 HTTP 协议，因此存在”中间人攻击”的风险，而浏览器跳转时，锚点不会发到服务器，就减少了泄漏令牌的风险。但是这种方式把令牌直接传给前端，是很不安全的。因此，只能用于一些安全要求不高的场景，并且令牌的有效期必须非常短，通常就是会话期间（session）有效，浏览器关掉，令牌就失效了。<br>这种方式的大概流程就是,A网站向B网站请求令牌,B直接给A返回令牌,A拿到授权</p>
+<h3 id="密码式（password）"><a href="#密码式（password）" class="headerlink" title="密码式（password）"></a>密码式（password）</h3><p>用户直接提供自己的账户和密码,风险较大</p>
+<ul>
+<li>第一步，A 网站要求用户提供 B 网站的用户名和密码。拿到以后，A 就直接向 B 请求令牌。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://oauth.b.com/token?</span></span><br><span class="line"><span class="string">grant_type=password&amp;</span></span><br><span class="line"><span class="string">username=USERNAME&amp;</span></span><br><span class="line"><span class="string">password=PASSWORD&amp;</span></span><br><span class="line"><span class="string">client_id=CLIENT_ID`</span></span><br></pre></td></tr></table></figure>
+上面 URL 中，grant_type参数是授权方式，这里的password表示”密码式”<br>username和password是 B 的用户名和密码。</li>
+<li>第二步，B 网站验证身份通过后，直接给出令牌。注意，这时不需要跳转，而是把令牌放在 JSON 数据里面，作为 HTTP 回应，A 因此拿到令牌。  </li>
+</ul>
+<p>这种方式需要用户给出自己的用户名/密码，显然风险很大，因此只适用于其他授权方式都无法采用的情况，而且必须是用户高度信任的应用。</p>
+<h3 id="客户端凭证（client-credentials）"><a href="#客户端凭证（client-credentials）" class="headerlink" title="客户端凭证（client credentials）"></a>客户端凭证（client credentials）</h3><p>凭证式（client credentials），适用于没有前端的命令行应用，即在命令行下请求令牌。</p>
+<ul>
+<li>第一步，A 应用在命令行向 B 发出请求。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://oauth.b.com/token?</span></span><br><span class="line"><span class="string">grant_type=client_credentials&amp;</span></span><br><span class="line"><span class="string">client_id=CLIENT_ID&amp;</span></span><br><span class="line"><span class="string">client_secret=CLIENT_SECRET`</span></span><br></pre></td></tr></table></figure>
+上面 URL 中，grant_type参数等于client_credentials表示采用凭证式<br>client_id和client_secret用来让 B 确认 A 的身份。</li>
+<li>第二步，B 网站验证通过以后，直接返回令牌。<br>这种方式给出的令牌，是针对第三方应用的，而不是针对用户的，即有可能多个用户共享同一个令牌。</li>
+</ul>
+<h2 id="令牌"><a href="#令牌" class="headerlink" title="令牌"></a>令牌</h2><h3 id="令牌的使用"><a href="#令牌的使用" class="headerlink" title="令牌的使用"></a>令牌的使用</h3><p>无论使用上面哪种方式去请求授权,成功后都会返回令牌,A 网站拿到令牌以后，就可以向 B 网站的 API 请求数据了。此时，每个发到 API 的请求，都必须带有令牌。<br>具体做法是在请求的头信息，加上一个Authorization字段，令牌就放在这个字段里面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`curl -H &quot;Authorization: Bearer ACCESS_TOKEN&quot; \</span></span><br><span class="line"><span class="string">&quot;https://api.b.com&quot;`</span></span><br></pre></td></tr></table></figure>
+<p>上面命令中，ACCESS_TOKEN就是拿到的令牌。</p>
+<h3 id="令牌的更新"><a href="#令牌的更新" class="headerlink" title="令牌的更新"></a>令牌的更新</h3><p>令牌的有效期到了，如果让用户重新走一遍上面的流程，再申请一个新的令牌，很可能体验不好，而且也没有必要。OAuth 2.0 允许用户自动更新令牌。<br>具体方法是，B 网站颁发令牌的时候，一次性颁发两个令牌，一个用于获取数据，另一个用于获取新的令牌（refresh token 字段）。令牌到期前，用户使用 refresh token 发一个请求，去更新令牌。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">`https://b.com/oauth/token?</span></span><br><span class="line"><span class="string">grant_type=refresh_token&amp;</span></span><br><span class="line"><span class="string">client_id=CLIENT_ID&amp;</span></span><br><span class="line"><span class="string">client_secret=CLIENT_SECRET&amp;</span></span><br><span class="line"><span class="string">refresh_token=REFRESH_TOKEN`</span></span><br></pre></td></tr></table></figure>
+<p>上面 URL 中，grant_type参数为refresh_token表示要求更新令牌<br>client_id参数和client_secret参数用于确认身份<br>refresh_token参数就是用于更新令牌的令牌。<br>B 网站验证通过以后，就会颁发新的令牌。</p>
+<h3 id="令牌与密码"><a href="#令牌与密码" class="headerlink" title="令牌与密码"></a>令牌与密码</h3><p>令牌（token）与密码（password）的作用是一样的，都可以进入系统，但是有三点差异。</p>
+<ul>
+<li><p>令牌是短期的，到期会自动失效，用户自己无法修改。密码一般长期有效，用户不修改，就不会发生变化。</p>
+</li>
+<li><p>令牌可以被数据所有者撤销，会立即失效。B可以随时取消A的令牌。密码一般不允许被他人撤销。</p>
+</li>
+<li><p>令牌有权限范围（scope），比如只能获取头像性别等,对于网络服务来说，只读令牌就比读写令牌更安全。密码一般是完整权限。</p>
+</li>
+</ul>
+<p>上面这些设计，保证了令牌既可以让第三方应用获得权限，同时又随时可控，不会危及系统安全。这就是 OAuth 2.0 的优点。注意，只要知道了令牌，就能进入系统。系统一般不会再次确认身份，所以令牌必须保密，泄漏令牌与泄漏密码的后果是一样的。 这也是为什么令牌的有效期，一般都设置得很短的原因。</p>
+<h2 id="OAuth-demo"><a href="#OAuth-demo" class="headerlink" title="OAuth demo"></a>OAuth demo</h2><p> 关于OAuth的大多数知识都来源于阮一峰的博客,在他的博客中也给出了一个完整的demo<br> 指路<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/04/github-oauth.html">阮一峰的GitHub OAuth demo</a></p>
+<p>以上是关于OAuth前端的内容整理,等学习到node.js会更新模拟整个OAuth请求的完整流程…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Oauth/" rel="tag">Oauth</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/07/dom/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DOM
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/07/miniprogram/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">小程序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFOAuth"><span class="nav-number">1.</span> <span class="nav-text">什么是OAuth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Oauth%E7%9A%84%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F%E5%8F%8A%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">Oauth的授权方式及流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%88%E6%9D%83%E7%A0%81%EF%BC%88authorization-code%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">授权码（authorization code）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E5%BC%8F%EF%BC%88implicit%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">隐藏式（implicit）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%BC%8F%EF%BC%88password%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">密码式（password）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%87%AD%E8%AF%81%EF%BC%88client-credentials%EF%BC%89"><span class="nav-number">2.4.</span> <span class="nav-text">客户端凭证（client credentials）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A4%E7%89%8C"><span class="nav-number">3.</span> <span class="nav-text">令牌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A4%E7%89%8C%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.1.</span> <span class="nav-text">令牌的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A4%E7%89%8C%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="nav-number">3.2.</span> <span class="nav-text">令牌的更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A4%E7%89%8C%E4%B8%8E%E5%AF%86%E7%A0%81"><span class="nav-number">3.3.</span> <span class="nav-text">令牌与密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OAuth-demo"><span class="nav-number">4.</span> <span class="nav-text">OAuth demo</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 Vesper Diesel All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Vesper Diesel
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 Vesper All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
