@@ -667,58 +667,6 @@ DOM代码和样式可以实时修改调试（修改后再刷新页面，修改�
 
 
   
-    <article id="post-事件环"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/11/03/%E4%BA%8B%E4%BB%B6%E7%8E%AF/">事件环</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/11/03/%E4%BA%8B%E4%BB%B6%E7%8E%AF/" class="article-date">
-	  <time datetime="2022-11-03T09:49:54.000Z" itemprop="datePublished">2022-11-03</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/js/">js</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          浏览器中的事件环执行 JS 代码的时候其实就是往执行栈中放入函数,当遇到异步的代码时，会被挂起并在需要执行的时候加入到 Task（有多种 Task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为,不同的任务源会被分配到不同的 Task 队列中，任务源可以分为 微任务（microtask） 和 宏任务（macrotask）。在 ES6 规范中，microtask 称为 jobs，macr...
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/11/03/%E4%BA%8B%E4%BB%B6%E7%8E%AF/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-基础数据类型"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -764,6 +712,58 @@ if () 括号里面布尔值 — tru...
         </p>
         <p class="article-more-link">
           <a href="/2022/11/03/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-事件环"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/03/%E4%BA%8B%E4%BB%B6%E7%8E%AF/">事件环</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/03/%E4%BA%8B%E4%BB%B6%E7%8E%AF/" class="article-date">
+	  <time datetime="2022-11-03T09:49:54.000Z" itemprop="datePublished">2022-11-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          浏览器中的事件环执行 JS 代码的时候其实就是往执行栈中放入函数,当遇到异步的代码时，会被挂起并在需要执行的时候加入到 Task（有多种 Task） 队列中。一旦执行栈为空，Event Loop 就会从 Task 队列中拿出需要执行的代码并放入执行栈中执行，所以本质上来说 JS 中的异步还是同步行为,不同的任务源会被分配到不同的 Task 队列中，任务源可以分为 微任务（microtask） 和 宏任务（macrotask）。在 ES6 规范中，microtask 称为 jobs，macr...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/03/%E4%BA%8B%E4%BB%B6%E7%8E%AF/#more">Read More</a>
         </p>
       
     </div>
@@ -835,60 +835,6 @@ if () 括号里面布尔值 — tru...
 
 
   
-    <article id="post-继承"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/11/03/%E7%BB%A7%E6%89%BF/">继承和原型链</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/11/03/%E7%BB%A7%E6%89%BF/" class="article-date">
-	  <time datetime="2022-11-03T09:49:54.000Z" itemprop="datePublished">2022-11-03</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/js/">js</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          继承类的继承:  三种属性 公有属性（__proto__）  私有属性  静态方法（静态属性）  
-实现一个类
-12345678910111213141516171819function Parent() &#123;    // 构造函数中this new调用的就指向实例    this.name = &#x27;parent&#x27;&#125;// 公有属性放在类的原型上Parent.prototype.eat = function () &#123;    console.log...
-        </p>
-        <p class="article-more-link">
-          <a href="/2022/11/03/%E7%BB%A7%E6%89%BF/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-面向对象"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -928,6 +874,60 @@ toString()方法返回当前对象对应的字符串形式123456var o1 = new Obj
         </p>
         <p class="article-more-link">
           <a href="/2022/11/03/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-继承"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/11/03/%E7%BB%A7%E6%89%BF/">继承和原型链</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/11/03/%E7%BB%A7%E6%89%BF/" class="article-date">
+	  <time datetime="2022-11-03T09:49:54.000Z" itemprop="datePublished">2022-11-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/js/">js</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          继承类的继承:  三种属性 公有属性（__proto__）  私有属性  静态方法（静态属性）  
+实现一个类
+12345678910111213141516171819function Parent() &#123;    // 构造函数中this new调用的就指向实例    this.name = &#x27;parent&#x27;&#125;// 公有属性放在类的原型上Parent.prototype.eat = function () &#123;    console.log...
+        </p>
+        <p class="article-more-link">
+          <a href="/2022/11/03/%E7%BB%A7%E6%89%BF/#more">Read More</a>
         </p>
       
     </div>
